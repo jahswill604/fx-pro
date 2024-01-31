@@ -1,0 +1,163 @@
+{% extends 'partials/base.html' %}
+{% load static%}
+{% block content %}
+
+<div class="main-wrapper">
+    <!-- inner hero section start -->
+    <section class="inner-hero bg_img"
+        style="background-image: url('assets/images/frontend/bread_crumb/6371e6fb120661668409083.jpg');">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 class="title text-white">Selected Package Details</h2>
+                    <ul class="page-breadcrumb justify-content-center">
+                        <li><a href="https://script.viserlab.com/signallab/demo">Home</a></li>
+                        <li>package Details</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- inner hero section end -->
+    <!-- blog section start -->
+    <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-header text-center wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.3s">
+                        <div class="section-subtitle">Package Details</div>
+                        <h2 class="section-title">pakage plan Details</h2>
+                    </div>
+                </div>
+            </div><!-- row end -->
+
+            <div class="row gy-4 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row gy-4 justify-content-center">
+
+                        <div class="col-xl-6 col-md-6 wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.5s">
+
+                            <div class="package-card" style="align-items: start; padding: 20px; font-size: 20px;">
+                                <table style="width: 100%; height: auto;">
+                                    
+                                        <tr  style="border-bottom: 2px solid grey; ">
+                                            <th style="  border-right: 3px solid grey;">
+                                                package plan
+                                            </th>
+                                            <td style="padding-top:10px; padding-left: 10px; ">
+                                                {{ package.package_Plan }}
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 2px solid grey;">
+                                            <th style="padding: 10px;border-right: 3px solid grey;">
+                                                package Price
+                                            </th>
+                                            <td style=" padding-left: 10px; ">
+                                               $ {{ package.Package_Price }}
+                                            </td>
+                                        </tr>
+                                    
+                                </table>
+
+
+                            </div>
+                            
+
+                            <!-- package-card end -->
+                        </div>
+                        <div class="col-xl-6 col-md-6 wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.5s">
+
+                            <div class="package-card">
+                                <form action="" style="width: 100%; height: auto;">
+                                    <input type="text" style="margin: 10px; border-radius:10px" placeholder="First Name">
+                                    <input type="text" style="margin: 10px; border-radius:10px" placeholder="Last Name">
+                                    <input type="email" style="margin: 10px; border-radius:10px" placeholder="Email">
+                                    <input type="tel" style="margin: 10px; border-radius:10px" placeholder="Phone Number">
+                                    <!-- <select name="" id="" style="width: 50%; height: 30px; margin: 10px; border-radius:10px;">
+                                        <!-- <option value="">
+                                            Choose Payment Method
+                                        </option>
+                                        <option value="">
+                                            Crypto Currency
+                                        </option>
+                                        <option value="">
+                                            Credit Card
+                                        </option> 
+                                    </select> -->
+                                </form>
+                                
+                                <div class="mt-4">
+                                    <a href="{% url 'core:buy_package' package_id=package.id %}" class="btn btn-outline--base chooseBtn">
+                                        Buy Package</a>
+                                </div>
+
+
+                            </div>
+                            
+
+                            <!-- package-card end -->
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</section>
+</div>
+
+
+</div>
+</div>
+
+</section>
+<!-- blog section end -->
+
+<!-- subscribe section start -->
+<!-- <section class="subscribe-section section--bg">
+    <div class="container">
+        <div class="row gy-4 align-items-center">
+            <div class="col-lg-6 text-lg-start text-center wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.3s">
+                <h2>Subscribe to our newsletter to get updated.</h2>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.5s">
+                <form class="subscribe-form disabled-false">
+                    <input type="hidden" name="_token" value="dQf9nkWaNFMCkXJJskZanVbpWhv7RPuTeT1SMTqC">
+                    <div class="custom-icon-field">
+                        <i class="las la-envelope"></i>
+                        <input type="email" name="email" autocomplete="off" class="form--control"
+                            placeholder="Enter email address">
+                    </div>
+                    <button type="submit" class="subscribe-btn">Subscribe <i class="lab la-telegram-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- subscribe section end -->
+
+
+
+
+</div><!-- main-wrapper end -->
+
+
+<!-- cookies dark version start -->
+<!-- <div class="cookies-card text-center hide">
+        <div class="cookies-card__icon bg--base">
+            <i class="las la-cookie-bite"></i>
+        </div>
+        <p class="mt-4 cookies-card__content">
+            We may use cookies or any other tracking technologies when you visit our website, including any other media form, mobile website, or mobile application related or connected to help customize the Site and improve your experience. <a href="cookie-policy.html" target="_blank">learn more</a>
+        </p>
+        <div class="cookies-card__btn mt-4">
+            <a href="javascript:void(0)" class="btn btn--base w-100 policy">Allow</a>
+        </div>
+    </div> -->
+<!-- cookies dark version end -->
+
+<!-- footer section start  -->
+
+{% endblock content %}

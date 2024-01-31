@@ -1,0 +1,122 @@
+{% extends 'partials/base.html' %}
+{% load static%}
+{% block content %}
+
+<div class="main-wrapper">
+    <!-- inner hero section start -->
+    <section class="inner-hero bg_img"
+        style="background-image: url('assets/images/frontend/bread_crumb/6371e6fb120661668409083.jpg');">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 class="title text-white">QR Code</h2>
+                    <ul class="page-breadcrumb justify-content-center">
+                        <li><a href="https://script.viserlab.com/signallab/demo">Home</a></li>
+                        <li>QR Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner hero section end -->
+
+    <!-- packaage section start -->
+    <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="section-header text-center wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.3s">
+                        <div class="section-subtitle">QR Code</div>
+                        <h2 class="section-title">Make Patment</h2>
+                    </div>
+                </div>
+            </div><!-- row end -->
+            <div class="row gy-4 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row gy-4 justify-content-center">
+
+                        <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.5s">
+
+                            <div class="package-card">
+                                <img src="/media/media/core/index/download.png" alt="">
+                                <a href=""><u onclick="copyText()" style="color: white;">
+                                        <p id="copyText">wqewrhgjhdbewafdtguhkgdtsewfdgyuij</p> copy
+                                    </u></a>
+                                
+                                    <script>
+                                        function copyText() {
+                                            // Get the text to copy
+                                            var textToCopy = document.getElementById("copyText").textContent;
+                                
+                                            // Create a temporary input element
+                                            var tempInput = document.createElement("input");
+                                            tempInput.value = textToCopy;
+                                
+                                            // Append the input element to the body
+                                            document.body.appendChild(tempInput);
+                                
+                                            // Select the text inside the input element
+                                            tempInput.select();
+                                            tempInput.setSelectionRange(0, 99999); // For mobile devices
+                                
+                                            // Execute the copy command
+                                            document.execCommand("copy");
+                                
+                                            // Remove the temporary input element
+                                            document.body.removeChild(tempInput);
+                                
+                                            // Optionally, provide feedback to the user
+                                            alert("copied: " + tempInput.value);
+                                        }
+                                    </script>
+                            </div>
+
+                            <!-- package-card end -->
+                        </div>
+                        <div class="mt-4">
+                            <div class="mt-4">
+                                <form method="post" enctype="multipart/form-data" action="" 
+                                    onsubmit="return validateForm()">
+                                    {% csrf_token %}
+                                    <input type="file" id="fileInput" name="file">
+                                    <button type="submit" class="btn btn-outline--base chooseBtn" style="float: right;">
+                                        Continue
+                                    </button>
+                                </form>
+                                <script>
+                                    function validateForm() {
+                                        var fileInput = document.getElementById('fileInput');
+                            
+                                        // Check if a file is selected
+                                        if (!fileInput || fileInput.files.length === 0) {
+                                            alert('Please select a file before continuing.');
+                                            return false; // Prevent form submission
+                                        }
+                            
+                                        // Optionally, you can perform additional validation or actions here if needed
+                            
+                                        // Show payment confirmation alert
+                                        alert('Payment confirmed!');
+                            
+                                        return true; // Allow form submission
+                                    }
+                                </script>
+
+                            </div>
+
+                        </div>
+                    </div>
+                  
+                </div>
+
+            </div><!-- row end -->
+        </div>
+    </section>
+    <!-- packaage section end -->
+
+
+ 
+
+</div>
+
+    {% endblock content %}

@@ -1,0 +1,581 @@
+{% load static %}
+<!Doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+
+<!-- Mirrored from script.viserlab.com/signallab/demo/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Jan 2024 01:47:01 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> SignalLab - Home</title>
+
+    <meta name="title" Content="SignalLab - Home">
+
+    <meta name="description"
+        content="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit">
+    <meta name="keywords" content="admin,blog,aaaa,ddd,aaa">
+    <link type="image/x-icon" href="{% static 'assets/images/logoIcon/favicon.png' %}" rel="shortcut icon">
+
+
+    <link href="{% static 'assets/images/logoIcon/logo.png'%}" rel="apple-touch-icon">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SignalLab - Home">
+
+    <meta itemprop="name" content="SignalLab - Home">
+    <meta itemprop="description"
+        content="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit">
+    <meta itemprop="image" content="assets/images/seo/5fa397a629bee1604556710.jpg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Viserlab Limited">
+    <meta property="og:description"
+        content="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit ff">
+    <meta property="og:image" content="assets/images/seo/5fa397a629bee1604556710.jpg" />
+    <meta property="og:image:type" content="jpg" />
+    <meta property="og:image:width" content="1180" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:url" content="https://script.viserlab.com/signallab/demo">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- bootstrap 5  -->
+    <link rel="stylesheet" href="{% static 'assets/global/css/bootstrap.min.css' %}">
+    <!-- fontawesome 5  -->
+    <link rel="stylesheet" href=" {% static 'assets/global/css/all.min.css' %}">
+    <!-- lineawesome font -->
+    <link rel="stylesheet" href="{% static 'assets/global/css/line-awesome.min.css' %}">
+    <!-- main css -->
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/main.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/custom.css' %}">
+
+    <!-- slick  slider js -->
+    <link rel="stylesheet" href="{% static 'assets/global/css/lib/slick.css' %}">
+
+    <style>
+        #email-error {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/color871e.css' %}">
+</head>
+
+<body>
+
+    <progress max="100" value="0" class="page-scroll-bar"></progress>
+
+    <!-- scroll-to-top start -->
+    <div class="scroll-to-top">
+        <span class="scroll-icon">
+            <i class="las la-arrow-up"></i>
+        </span>
+    </div>
+    <!-- scroll-to-top end -->
+
+    <!-- preloader start -->
+    <div class="preloader">
+        <div class="preloader__inner">
+            <div class="preloader__box">
+                <span class="line-1"></span>
+                <span class="line-2"></span>
+                <span class="line-3"></span>
+            </div>
+            <h4 class="preloader__sitename text--base">Fx Pro</h4>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+
+    <!-- header-section start  -->
+    <header class="header">
+        <div class="header__bottom">
+            <div class="container">
+                <nav class="navbar navbar-expand-xl p-0 align-items-center">
+                    <a class="site-logo site-title" href="https://script.viserlab.com/signallab/demo">
+                        <img src="{% static 'assets/images/logoIcon/logo.png' %}" alt="logo">
+                    </a>
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="menu-toggle"></span>
+                    </button>
+                    <div class="collapse navbar-collapse mt-lg-0 mt-3" id="navbarSupportedContent">
+                        <ul class="navbar-nav main-menu ms-auto">
+                            <li><a href="{% url 'core:index'%}">Home</a></li>
+                            <li>
+                                <a href="{% url 'core:about'%}">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'core:deposit' %}">
+                                    Deposit
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'core:withdrawal' %}">
+                                    Withdraw
+                                </a>
+                            </li>
+                            <li><a href="{% url 'core:packages' %}">Packages</a></li>
+                            <li><a href="{% url 'core:contact' %}">Contact</a></li>
+                        </ul>
+                        <div class="nav-right justify-content-xl-end">
+                          
+
+{% if user.is_authenticated %}
+
+    <a href="#" class="btn btn-md btn--base d-flex align-items-center language-select langSel"
+       style="background-color: transparent; box-shadow: 2px 2px 5px 2px black; margin: 10px;">
+        <i class="las la-user fs--18px me-2">
+             Balance: ${{ user_balance }} 
+        </i>
+    </a>
+    <a href="{% url 'userauths:logout' %}" class="btn btn-md btn--base d-flex align-items-center language-select langSel"style=" margin: 10px;">
+        <i class="las la-user fs--18px me-2"></i>
+        Logout
+    </a>
+{% else %}
+    <a href="{% url 'userauths:sign-up' %}" class="btn btn-md btn--base d-flex align-items-center"style=" margin: 10px;">
+        <i class="las la-user fs--18px me-2"></i>
+        Sign Up
+    </a>
+    <a href="{% url 'userauths:sign-in' %}" class="btn btn-md btn--base d-flex align-items-center language-select langSel" >
+        <i class="las la-user fs--18px me-2"></i>
+        Login
+    </a>
+{% endif %}
+                            <!-- <select class="language-select langSel">
+                                <option value="en" selected>English</option>
+                            </select>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div><!-- header__bottom end -->
+    </header>
+    <!-- header-section end  -->
+    {% block content %}
+
+    {% endblock content %}
+
+    <!-- footer section start  -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-3">
+                    <div class="footer-logo text-lg-start text-center">
+                        <a href="https://script.viserlab.com/signallab/demo" class="footer-logo"><img
+                                src="{% static 'assets/images/logoIcon/logo.png' %}" alt="image"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="inline-menu d-flex flex-wrap align-items-center justify-content-center">
+                        <li>
+                            <a href="policy/privacy-policy/161.html">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="policy/terms-of-service/162.html">
+                                Terms of Service
+                            </a>
+                        </li>
+                        <li>
+                            <a href="policy/terms-of-condition/163.html">
+                                Terms of Condition
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <ul
+                        class="social-link-list d-flex flex-wrap align-items-center justify-content-center justify-content-lg-end">
+                        <li>
+                            <a href="https://www.google.com/" target="_blank">
+                                <i class="fab fa-google-plus-g"></i> </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/" target="_blank">
+                                <i class="lab la-facebook-f"></i> </a>
+                        </li>
+                        <li>
+                            <a href="https://www.twitter.com/" target="_blank">
+                                <i class="lab la-twitter"></i> </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/" target="_blank">
+                                <i class="lab la-instagram"></i> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section section end  -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'assets/global/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/global/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- slick slider css -->
+    <script src="{% static 'assets/global/js/lib/slick.min.js' %}"></script>
+
+    <!-- wow js  -->
+    <script src="{% static 'assets/templates/basic/js/lib/wow.min.js' %}"></script>
+
+    <script src="{% static 'assets/templates/basic/js/gsap.min.js' %}"></script>
+    <script src="{% static 'assets/templates/basic/js/ScrollTrigger.js' %}"></script>
+
+    <script src="{% static 'assets/templates/basic/js/app.js' %}"></script>
+
+
+    <link rel="stylesheet" href="{% static 'assets/global/css/iziToast.min.css' %}">
+    <script src="{% static 'assets/global/js/iziToast.min.js' %}"></script>
+
+
+    <script>
+        "use strict";
+        function notify(status, message) {
+            if (typeof message == 'string') {
+                iziToast[status]({
+                    message: message,
+                    position: "topRight"
+                });
+            } else {
+                $.each(message, function (i, val) {
+                    iziToast[status]({
+                        message: val,
+                        position: "topRight"
+                    });
+                });
+            }
+        }
+    </script>
+
+    <script>
+        (function ($) {
+            "use strict";
+
+            $('.chooseBtn').on('click', function () {
+                var modal = $('#chooseModal');
+
+                if (null) {
+                    modal.find('.modal-title-text').text($(this).data('name'));
+                    modal.find('.packageName').text($(this).data('name'));
+                    modal.find('.packagePrice').text($(this).data('price') + ' ' + "USD");
+                    modal.find('.packageValidity').text($(this).data('validity') + ' Days');
+                    modal.find('input[name=id]').val($(this).data('id'));
+                }
+
+                modal.modal('show');
+            });
+
+        })(jQuery);
+    </script>
+    <script>
+        (function ($) {
+            "use strict";
+            // testimonial-slider js
+            $('.testimonial-slider').slick({
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                dots: false,
+                arrows: false,
+                autoplay: true,
+                cssEase: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                speed: 1000,
+                autoplaySpeed: 1000,
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                ]
+            });
+        })(jQuery);
+    </script>
+
+    <script>
+        (function ($) {
+
+            "use strict";
+
+            var formEl = $(".subscribe-form");
+
+            formEl.on('submit', function (e) {
+                e.preventDefault();
+                var data = formEl.serialize();
+
+                if (!formEl.find('input[name=email]').val()) {
+                    return notify('info', 'Email field is required');
+                }
+
+                $.ajax({
+                    url: "https://script.viserlab.com/signallab/demo/subscribe",
+                    method: 'post',
+                    data: data,
+
+                    success: function (response) {
+                        if (response.success) {
+                            formEl.find('input[name=email]').val('')
+                            notify('success', response.message);
+                        } else {
+                            $.each(response.error, function (key, value) {
+                                notify('error', value);
+                            });
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    }
+
+                });
+            });
+
+        })(jQuery);
+    </script>
+
+    <script>
+        (function ($) {
+            "use strict";
+            $(".langSel").on("change", function () {
+                window.location.href = "https://script.viserlab.com/signallab/demo/change/" + $(this).val();
+            });
+        })(jQuery);
+    </script>
+
+    <script>
+        (function ($) {
+            "use strict";
+
+            $('.showFilterBtn').on('click', function () {
+                $('.responsive-filter-card').slideToggle();
+            });
+
+            var inputElements = $('input, select, [type=text], [type=password], textarea');
+            $.each(inputElements, function (index, element) {
+                element = $(element);
+                element.closest('.form-group').find('label').attr('for', element.attr('name'));
+                element.attr('id', element.attr('name'))
+            });
+
+            $('.policy').on('click', function () {
+                $.get('index.html', function (response) {
+                    $('.cookies-card').addClass('d-none');
+                });
+            });
+
+            setTimeout(function () {
+                $('.cookies-card').removeClass('hide')
+            }, 2000);
+
+            $.each($('input, select, textarea'), function (i, element) {
+                var elementType = $(element);
+                if (elementType.attr('type') != 'checkbox') {
+                    if (element.hasAttribute('required')) {
+                        $(element).closest('.form-group').find('label').addClass('required');
+                    }
+                }
+            });
+
+            var darkMode = 1;
+
+            if (darkMode != 1) {
+                document.body.classList.add('lightmode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                document.body.classList.remove('lightmode');
+                localStorage.setItem('darkMode', null);
+            }
+
+            var currentRoute = 'https://script.viserlab.com/signallab/demo';
+
+            $('.main-menu li a[href="' + currentRoute + '"]')
+                .closest('li').addClass('active')
+                .closest('.menu_has_children').first().addClass('active');
+
+        })(jQuery);
+    </script>
+
+    <script src="{% static 'assets/global/js/firebase/firebase-8.3.2.js' %}"></script>
+
+    <script>
+        "use strict";
+
+        var permission = null;
+        var authenticated = '';
+        var pushNotify = 1;
+        var firebaseConfig = { "apiKey": "----------", "authDomain": "-------------", "projectId": "------------", "storageBucket": "-----------", "messagingSenderId": "------------", "appId": "--------------", "measurementId": "-------------", "serverKey": "-----------------" };
+
+        function pushNotifyAction() {
+            permission = Notification.permission;
+
+            if (!('Notification' in window)) {
+                notify('info', 'Push notifications not available in your browser. Try Chromium.')
+            }
+            else if (permission === 'denied' || permission == 'default') { //Notice for users dashboard
+                $('.notice').append(`
+                <div class="col-lg-12">
+                    <div class="custom--card mb-4">
+                        <div class="card-header justify-content-between d-flex flex-wrap notice_notify">
+                            <h5 class="alert-heading">Please Allow / Reset Browser Notification <i class='las la-bell text--danger'></i></h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-0 small">If you want to get push notification then you have to allow notification from your browser</p>
+                        </div>
+                    </div> 
+                </div>
+            `);
+            }
+        }
+
+        //If enable push notification from admin panel
+        if (pushNotify == 1) {
+            pushNotifyAction();
+        }
+
+        //When users allow browser notification
+        if (permission != 'denied' && firebaseConfig) {
+
+            //Firebase 
+            firebase.initializeApp(firebaseConfig);
+            const messaging = firebase.messaging();
+
+            navigator.serviceWorker.register("{% static 'assets/global/js/firebase/firebase-messaging-sw.js' %}")
+
+                .then((registration) => {
+                    messaging.useServiceWorker(registration);
+
+                    function initFirebaseMessagingRegistration() {
+                        messaging
+                            .requestPermission()
+                            .then(function () {
+                                return messaging.getToken()
+                            })
+                            .then(function (token) {
+                                $.ajax({
+                                    url: 'https://script.viserlab.com/signallab/demo/add/device/token',
+                                    type: 'POST',
+                                    data: {
+                                        token: token,
+                                        '_token': "dQf9nkWaNFMCkXJJskZanVbpWhv7RPuTeT1SMTqC"
+                                    },
+                                    success: function (response) {
+                                        // console.log(response);
+                                    },
+                                    error: function (err) {
+                                        // console.log('User Chat Token Error'+ err);
+                                    },
+                                });
+                            }).catch(function (error) {
+                                // console.log(error);
+                            });
+                    }
+
+                    messaging.onMessage(function (payload) {
+                        const title = payload.notification.title;
+                        const options = {
+                            body: payload.notification.body,
+                            icon: payload.notification.icon,
+                            click_action: payload.notification.click_action,
+                            vibrate: [200, 100, 200]
+                        };
+                        new Notification(title, options);
+                    });
+
+                    //For authenticated users
+                    if (authenticated) {
+                        initFirebaseMessagingRegistration();
+                    }
+
+                });
+
+        }
+    </script>
+    <script>
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5fe0b9b2a8a254155ab5421d/1eq2tap1m';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <script>
+        if (window.top != window.self) {
+            document.body.innerHTML += '<div style="position:fixed;top:0;width:100%;z-index:9999999;background:#f8d7da;color:#721c24;text-align:center; padding: 20px;"><p style="font-size:20px; font-weight: bold;">You are using this website under an external iframe!!</p><p style="font-size:16px; margin-top: 20px;">for a better experience, please browse directly instead of an external iframe.</p><a href="' + window.self.location + '" target="_blank" style=" margin-top:20px; color: #fff;background-color: #dc3545; padding: 5px 10px; border-radius: 5px; text-decoration: none;">Browse Directly</a></div>';
+        }
+    </script>
+
+
+    <script>
+        adroll_adv_id = "YXRNNTO7ZBAMFBH67UUE5M";
+        adroll_pix_id = "MMQQDWGN25EXPHGRPA3NLR";
+        adroll_version = "2.0";
+        (function (w, d, e, o, a) {
+            w.__adroll_loaded = true;
+            w.adroll = w.adroll || [];
+            w.adroll.f = ['setProperties', 'identify', 'track'];
+            var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id
+                + "/roundtrip.js";
+            for (a = 0; a < w.adroll.f.length; a++) {
+                w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function (n) {
+                    return function () {
+                        w.adroll.push([n, arguments])
+                    }
+                })(w.adroll.f[a])
+            }
+            e = d.createElement('script');
+            o = d.getElementsByTagName('script')[0];
+            e.async = 1;
+            e.src = roundtripUrl;
+            o.parentNode.insertBefore(e, o);
+        })(window, document);
+        adroll.track("pageView");
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ME4K0RD7K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-1ME4K0RD7K');
+    </script>
+</body>
+
+
+<!-- Mirrored from script.viserlab.com/signallab/demo/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Jan 2024 01:47:35 GMT -->
+
+</html>

@@ -1,0 +1,91 @@
+{% extends 'partials/base.html' %}
+{% load static%}
+{% block content %}
+
+
+<div class="main-wrapper">
+            <!-- inner hero section start -->
+<section class="inner-hero bg_img" style="background-image: url('../assets/images/frontend/bread_crumb/6371e6fb120661668409083.jpg');">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+                <h2 class="title text-white">Login</h2>
+                <ul class="page-breadcrumb justify-content-center">
+                    <li><a href="https://script.viserlab.com/signallab/demo">Home</a></li>
+                    <li>Login</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- inner hero section end -->    
+        <!-- Login section start -->
+    <section class="registration-section pt-100 pb-100">
+        <div class="el-1">
+            <img src="{% static '../assets/images/frontend/auth_image/63887dcc0aca71669889484.png' %}" alt="image">
+        </div>
+        <div class="el-2">
+            <img src="{% static '../assets/images/frontend/auth_image/63887dcc1789d1669889484.png' %}" alt="image">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="registration-wrapper section--bg">
+                    
+                      
+                        <form class="transparent-form verify-gcaptcha" method="POST">
+                                  {% csrf_token %}                           <div class="row">
+                                <div class="col-lg-12 form-group">
+                    
+                                    <label> Email <sup class="text--danger">*</sup></label>
+                                    <div class="custom-icon-field">
+                                        <i class="las la-user"></i>
+                                        <input type="email" name="email" value=""
+                                            class="form--control" placeholder="Enter " required>
+                                    </div>
+                                    <div class="col-lg-12 form-group mt-3">
+                                        <label>Password <sup class="text--danger">*</sup></label>
+                                        <div class="custom-icon-field">
+                                            <i class="las la-key"></i>
+                                            <input id="password" type="password" class="form--control" name="password"
+                                                placeholder="Enter password" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 form-group">
+                                        <div class="mb-3">
+        
+<script src="{% static '../../../../www.google.com/recaptcha/api.js' %}"></script>
+<div class="g-recaptcha" data-sitekey="6LdPC88fAAAAADQlUf_DV6Hrvgm-pZuLJFSLDOWV" data-callback="verifyCaptcha"></div>
+<div id="g-recaptcha-error"></div>    </div>
+                                    </div>
+
+                                    <div class="col-lg-12 form-group d-flex justify-content-between flex-wrap">
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                                                >
+                                            <label class="form-check-label" for="remember">Remember Me</label>
+                                        </div>
+                                        <a href="password/reset.html"
+                                            class="text--base">Forgot Password?</a>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button type="submit" class="btn btn--base w-100">Login</button>
+                                        <p class="text-center mt-3"> Don't have an account?
+                                            <a href="register.html" class="text--base">
+                                                Create Account                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Login section end -->
+
+</div><!-- main-wrapper end -->
+
+{%endblock %}

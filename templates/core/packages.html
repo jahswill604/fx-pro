@@ -1,0 +1,118 @@
+{% extends 'partials/base.html' %}
+{% load static%}
+{% block content %}
+
+<div class="main-wrapper">
+    <!-- inner hero section start -->
+    <section class="inner-hero bg_img"
+        style="background-image: url('assets/images/frontend/bread_crumb/6371e6fb120661668409083.jpg');">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 class="title text-white">Packages</h2>
+                    <ul class="page-breadcrumb justify-content-center">
+                        <li><a href="https://script.viserlab.com/signallab/demo">Home</a></li>
+                        <li>Packages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner hero section end -->
+
+    <!-- packaage section start -->
+    <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="section-header text-center wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.3s">
+                        <div class="section-subtitle">Our Packages</div>
+                        <h2 class="section-title">Unlock Daily Forex Signals</h2>
+                    </div>
+                </div>
+            </div><!-- row end -->
+            <div class="row gy-4 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row gy-4 justify-content-center">
+                        {% for package in packages%}
+                        <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-duration="0.5" data-wow-delay="0.5s">
+
+                            {% if user.is_authenticated %}
+                            <div class="package-card">
+                                <h4 class="package-card__name">{{ package.package_Plan }}</h4>
+                                <div class="package-card__price">${{ package.Package_Price }}</div>
+                                <ul class="package-card__feature-list mt-4">
+                                    <li>{{ package.Package_Discribtion_1 }}</li>
+                                    <li>{{ package.Package_Discribtion_2 }}</li>
+                                    <li>{{ package.Package_Discribtion_3 }}</li>
+                                </ul>
+                                <div class="mt-4">
+                                    <a href="{% url 'core:package_detail' package_id=package.id %}" class="btn btn-outline--base chooseBtn">
+                                    <!-- Additional content for authenticated users -->
+                                    Choose Package</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            {# Redirect to the login page if the user is not authenticated #}
+                            {% with next_url=request.get_full_path %}
+                                <script>
+                                    window.location.href = "{% url 'userauths:sign-in' %}?next={{ next_url }}";
+                                </script>
+                            {% endwith %}
+                        {% endif %}
+
+                            <!-- package-card end -->
+                        </div>
+                        {% endfor %}
+                    </div><!-- row end -->
+                </div>
+
+                <!-- <div class="pt-50 d-flex text-center justify-content-center">
+
+                </div> -->
+
+            </div><!-- row end -->
+        </div>
+    </section>
+    <!-- packaage section end -->
+
+    <!-- <div class="modal fade cmn--modal" id="chooseModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title method-name">Please login before buy a package</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-3">To purchase a package, you have to login into your account</p>
+                    <div class="form-group">
+                        <a href="user/login.html" class="btn btn-sm btn--success w-100">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- faq section start -->
+   
+
+</div><!-- main-wrapper end -->
+
+
+<!-- cookies dark version start -->
+<!-- <div class="cookies-card text-center hide">
+        <div class="cookies-card__icon bg--base">
+            <i class="las la-cookie-bite"></i>
+        </div>
+        <p class="mt-4 cookies-card__content">
+            We may use cookies or any other tracking technologies when you visit our website, including any other media form, mobile website, or mobile application related or connected to help customize the Site and improve your experience. <a href="cookie-policy.html" target="_blank">learn more</a>
+        </p>
+        <div class="cookies-card__btn mt-4">
+            <a href="javascript:void(0)" class="btn btn--base w-100 policy">Allow</a>
+        </div>
+    </div> -->
+<!-- cookies dark version end -->
+
+<!-- footer section start  -->
+{% endblock content %}
